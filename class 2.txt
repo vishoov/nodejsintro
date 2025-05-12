@@ -1,0 +1,165 @@
+MERN basics -> structure
+
+
+M=MongoDB -> Database
+E=Express.JS-> API Design
+R=React-> Front End
+N=Node.JS-> Server 
+
+
+
+Node.JS
+
+React-> Single Page Applications that are highly dynamic in nature 
+State Management, Hooks, Components -> React -> Make Virtual DOM 
+Website & Web app -> project manager 
+create react app or npm create vite@latest or vue.js 
+
+( HTML, CSS, JS ) -> Combine 
+Project Manager Tracks the project 
+
+
+Node.JS 
+
+Backend -> to be live 24X7 
+
+Project Manager -> 24X7 LIVE 
+
+Runtime -> Environment JS execute 
+
+NODE.JS -> server side javascript runtime environment 
+
+open source environment 
+
+helps us in managing the server side of our MERN stack Applications
+also helps us in executing the features meant for the backend of MERN
+
+What NodeJS Can DO?
+
+-> That can help in allocation and movement of DATA 
+-> This can create, open, read, write, delete user information objects in the DB
+
+
+CRUD Applications 
+Create, Read, Update, Delete 
+
+
+Example -> signup 
+user info -> form
+api call-> server-> create new user in the database 
+
+
+
+Example -> Facebook Login 
+user -> email password 
+authenticate -> ( API Call -> Server -> DB )  
+
+
+Server -> data aggregation and data provision   
+Client side -> username, password 
+Server Side-> Request 
+
+
+
+How to setup a backend side project 
+
+terminal -> npm init -y
+npm -> node package manager
+init -> initialise 
+-y -> yes to default settings
+
+
+this creates a package.json that contains the project specifications 
+
+
+main -> endpoint for the server 
+
+whenever i will deploy my server -> this main file will be the one 
+to be executed by the system
+
+node index.js -> standalone single file executed index.js
+
+npm run test 
+
+npm -> this is going THROUGH the project 
+run -> runs some scripts 
+test-> custom script that i have defined in the package.json
+
+
+
+SERVER -> delegation of data related features 
+MAIN file -> This is the endpoint of project, meaning that when we deploy this project
+this file will be used to access all project features 
+
+Q-> What is the use of package.json in backend
+    It contains technical project information like name, description, dependancies, 
+    custom scripts, version, that help in managing and tracking the project
+
+Q-> what is the difference between package.json and package-lock.json
+    package-lock.json contains the stable current version of the packages or libraries
+    that we have installed in our project 
+
+
+Q-> How can we add custom scripts to our project 
+    scripts key-> name:script
+
+Q-> What is the use of nodemon
+
+Ctrl + S -> eventListener -> server restart
+
+
+Express.JS
+
+npm i Express
+
+
+API -> Application Programming Interface 
+
+Project Structure -> API Endpoints Structure 
+
+RESTful API -> in order to fulfill one request of the Client
+    we should fetch ALL the information that is required to do it 
+
+
+    ROUTES-> endpoints 
+
+    more the services more are the routes 
+
+    Delhi -> Shimla 
+    highway to himachal
+    highway to rajasthan
+    highway to mumbai
+    highway to bangalore 
+
+    Routes -> Express JS 
+    Different routes hold different features 
+
+    route-> https://localhost:3000/user/login ->Login Route
+    signup route -> https://localhost:3000/user/signup  
+
+    localhost:3000/user -> request -> get -> get all the users 
+    localhost:3000/user -> put -> update all users
+    localhost:3000/user/id -> 
+    instagram.com/praveen.pal
+
+Express.JS -> API Building Library 
+
+API Building
+Routing
+Features 
+Data 
+
+
+Express.JS
+- build on node.js 
+- scalability
+- security
+- error handling
+
+- it makes the request and response accessible like objects 
+
+login -> email, password -> API Request 
+Req-> Server -> req treated like object 
+
+req -> method, time, authentication, body -> object.method 
+res-> objects 
