@@ -1,0 +1,104 @@
+Express, Advanced Routing and Middleware
+
+
+Client -> API Request -> Method -> Server -> Extract from the request file
+-> .json -> extract -> authenticate-> clean -> Database 
+
+
+Route-> 
+
+app.method("address", handlerFunction);
+
+
+User Management API
+
+signup
+login
+profile
+getallusers
+updatepassword
+logout 
+
+
+//dynamic route for an amazon product 
+//product page -> 
+
+product name
+refferer link 
+
+route 
+for an amazon product 
+
+
+//localhost:3000/product_name?referrer=search
+
+//dynamic url -> url that can change based on the request
+app.get("/user/:id", (req, res)=>{
+    //express helps us to extract the parameters from the url
+    //req.params -> object that contains the parameters from the url
+    const id = req.params.id;
+    res.send(`Hello from the user page with id ${id}`);
+})
+
+app.get("/search", (req, res)=>{
+    
+    const video = req.query.video || 'blank';//localhost:3000/search?video=496496396
+    const playlist = req.query.playlist || 'blank'; //localhost:3000/search?video=496496396&playlist=123456
+    const referrer = req.query.referrer || 'blank'; //localhost:3000/search?video=496496396&playlist=123456&referrer=google
+    res.send(`Hello from the search page with video ${video} and playlist ${playlist} and referrer ${referrer}`);
+})
+
+
+//localhost:3000/search?q=search_value
+
+
+
+Middleware 
+
+route -> API Request  -> process handler function -> response 
+
+
+//security -> door metal detector 
+// middleware -> the function that is called BEFORE we respond to a request 
+
+Request -> Middleware -> Next -> Response 
+
+
+pre built middlewares -> file formatting, security, package through 
+    app.use(express.json())
+
+custom middlewares -> that we can build by ourself
+    //logging middleware 
+            --> whatever request we recieve on the server, we add it to the LOG  
+
+
+//homework task 
+
+user management api 
+
+5 features 
+
+signup -> post -> information name, age, email, ph, password 
+login -> post -> email, password
+profile 
+home
+updatepassword
+
+
+USER MANAGEMENT API -
+Best practices
+
+Scalable - MVC Architecture 
+
+https://developer.mozilla.org/en-US/docs/Glossary/MVC
+
+
+, Reliable, Fault Tolerant, Fast, Efficient, Secure 
+
+Databases 
+
+SQL, NoSQL 
+
+Data Modelling
+Database Data movement
+Data Sanitization 

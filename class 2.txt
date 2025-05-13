@@ -125,11 +125,12 @@ RESTful API -> in order to fulfill one request of the Client
 
     more the services more are the routes 
 
-    Delhi -> Shimla 
-    highway to himachal
-    highway to rajasthan
-    highway to mumbai
-    highway to bangalore 
+Feature -> designated route 
+    Ex. Delhi -> Shimla 
+    a. highway to himachal
+    b. highway to rajasthan
+    c. highway to mumbai
+    d. highway to bangalore 
 
     Routes -> Express JS 
     Different routes hold different features 
@@ -163,3 +164,6 @@ Req-> Server -> req treated like object
 
 req -> method, time, authentication, body -> object.method 
 res-> objects 
+
+
+
