@@ -1,0 +1,86 @@
+MVC Architecture 
+
+
+Model
+View
+Controller
+
+
+Architectural pattern
+
+Architect -> Building Design -> Building 
+
+Hospital
+Home
+
+Application Design -> 
+
+
+to ensure scalability
+
+
+JAVACRIPT IS AN INTERPRETER BASED LANGUAGE
+LINE BY LINE    
+
+
+MORE THE CODE IN THE ENDPOINT FILE, THE SLOWER OUR SERVER BECOMES
+
+
+SCALABILITY 
+1000 USERS 
+
+
+BOTTLENECK ISSUE 
+
+
+CONCURRENT USERS 
+
+
+
+please tell me 3 ways i can make sure my Application
+is Scalable
+
+1. modular code 
+2. code on DEMAND
+3. deployment scalable 
+
+
+MVC Architecture 
+
+
+
+user route 
+
+
+/signup 
+
+Layer
+
+enpoint | routes | controller | model 
+
+
+ERROR HANDLING
+
+
+handler functions
+
+
+const function = (req, res) =>{
+    try{
+        //function logic 
+    }
+    catch(err){
+        res.send(err.message)
+    }
+}
+
+
+
+
+Databases 
+SQL, NoSQL 
+
+
+https://www.mongodb.com/try/download/community
+
+download mongodb compass 
