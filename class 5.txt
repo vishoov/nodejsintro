@@ -1,0 +1,114 @@
+MongoDB
+
+Development   
+LocalDB
+
+Development -> Features 
+
+
+
+
+
+Production 
+Cloud DB
+
+
+
+
+Mongo DB
+
+
+Cluster -> Group of physical hard disks stored somewhere on the earth which we can
+remotely access to implement our database needs 
+
+Database -> where we store data in high level form -> for a single project we can deployment a database
+
+
+Collections -> products, users, reviews, orders 
+Tables, but not exactly table -> format & idea is of tables, but the structure should be flexible 
+
+Documents -> objects, where we store individual data 
+
+
+MongoDB Shell
+
+command prompt or terminal -> operations through code 
+
+
+A database is an organized collection of data that can be easily accessed, managed, and updated. It’s like a smart digital filing system that lets you store and retrieve information efficiently.
+
+
+
+The MongoDB Shell (also known as mongosh) is an interactive command-line interface used to:
+Connect to a MongoDB database 
+Run queries
+
+Insert, update, or delete data
+
+Manage databases and collections
+
+
+CRUD 
+Create
+read
+update
+delete 
+
+
+Mongoose 
+
+
+MongoShell
+
+1. show dbs -> to list all the databases present on your local system
+
+2. use db_name -> to switch to an existing db or create a new one with name db_name
+
+3. db.createCollection("name")
+
+
+CRUD 
+
+Create
+
+create a document 
+
+db.collection_name.insertOne({object to be inserted})
+
+read
+
+db.collection_name.find({query});
+
+Querying 
+
+
+Update 
+Query, implement the update 
+
+db.users.updateOne({"name":"Vishoo"}, {$set:{"name":"Rahul"}})
+
+
+
+Delete 
+
+db.users.deleteOne({"name":"Rahul"})
+
+
+
+Data Type -> email - number
+Duplicate Email 
+Age is not standard 
+Inconsistent Field Presence 
+Timestamp
+
+
+Data Modelling 
+
+Data modeling is like creating a blueprint for your data it defines how information is connected and how it flows through your application.
+
+
+Driver 
+
+Mongoose is a database driver that helps us in defining schema, connecting to our database, and implementing user data related tasks 
+
+

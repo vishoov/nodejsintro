@@ -11,6 +11,7 @@ const app = express();
 //port listener 
 //port -> local system -> server locations 
 //localhost:8000, localhost:3000, localhost:5000
+const mongoose = require('mongoose');
 const PORT = 3000;
 app.use(express.json())
 //routing 
@@ -21,6 +22,19 @@ app.use(express.json())
 // document.addEventListener("DOMContentLoaded", function() {
 //     console.log("DOM fully loaded and parsed");
 //   });
+
+//this is a promise that is used to connect to the database
+mongoose.connect("mongodb://localhost:27017/mongodb")
+.then(() => {
+    console.log("Connected to MongoDB");
+})
+.catch((err) => {
+    console.log("Error connecting to MongoDB", err);
+})
+
+
+
+
 
 const loggingMiddleware = (req, res, next) =>{
 
