@@ -1,27 +1,27 @@
+const User  = require("../model/users.model");
 
 
-const signup =  (req, res)=> {
+const signup =  async (req, res)=> {
 
     try{
-    const { name, email, password } = req.body;
+        const user = req.body;
     //input sanitization
-    //hackers -> query injection attack 
+    //hackers -> query injection attack
+    //mpngoose mongodb -> 3rd party library that is used to connect to the database
+    const newUser = await User.create(user);
+    //insertOne -> user.create(user) -> create a new user in the database
 
     //input sanitization -> process of removing unwanted characters from the input
     //input validation -> process of checking if the input is valid or not
 
-    const user = {
-        name: name.trim(),
-        email: email.trim(),
-        password: password.trim()
-    }
+ 
     // email = email.trim();
     // if(!email.includes("@")){
     //     return res.status(400).send("Invalid email");
     // }
 
     // res.send(`Hello ${name}, your email is ${email} and your password is ${password}`);
-    res.json({user})
+    res.json({newUser:newUser})
 
     }
     catch(err){
@@ -31,15 +31,23 @@ const signup =  (req, res)=> {
 
 }
 
-const login = (req, res)=>{
+const login = async (req, res)=>{
     try{
     const { email, password} = req.body;
 
-    const user = { 
-        email: email.trim(),
-        password: password.trim()
+    const user = await User.findOne({email:email});
+    
+    if(!user){
+        return res.status(400).send("User not found");
     }
-    res.send(user);
+
+    if(user.password !== password){
+        return res.status(400).send("Invalid password");
+    }
+
+    res.json({message:"Login successful", user:user});
+
+    
 }
 catch(err){
     res.send(err.message);

@@ -7,29 +7,31 @@ const userSchema = new mongoose.Schema({
     //and their types, their ranges, their default values, etc
     name:{
         type:String, //type of the field
-        required:[true, "Name is required"],//this field is required meaning without this field the document will not be saved
+        required:[true, "Name is  required"],//this field is required meaning without this field the document will not be saved
         trim:true,//remove all the spaces from the start and end of the string
         lowercase:true,//convert the string to lowercase
         minLength:[3, "Please choose a longer name"],//minimum length of the string
         maxLength:[50, "Please write a shorter name"],//maximum length of the string
     },
-    dob:{
-        type:Date,//type of the field
-        required:[true, "Please add your DOB"],//this field is required meaning without this field the document will not be saved
+    // dob:{
+    //     type:Date,//type of the field
+    //     required:[true, "Please add your DOB"],//this field is required meaning without this field the document will not be saved
         
-    },
+    // },
     gender:{
         type:String,//type of the field
         required:true,//this field is required meaning without this field the document will not be saved
 
-        enum:[["male", "female", "others"], "Please enter a valid gender"],//enumeration is used to define the possible values of the field
+        enum:["male", "female", "others"],//enumeration is used to define the possible values of the field
         default:"others",//default value of the field
         trim:true,//remove all the spaces from the start and end of the string
     },
     email:{
         type:String,
         required:[true, "Please add your email"],
-        unique:[true, "Email already exists"],//this field should be unique meaning no two documents can have the same value for this field
+        unique:true,
+        
+        //this field should be unique meaning no two documents can have the same value for this field
         //email validation @ .com 
         validate:{
             validator:function(value){
@@ -39,6 +41,12 @@ const userSchema = new mongoose.Schema({
             message:"Please enter a valid email"
         }
     },
+    age:{
+        type:Number,
+        required:[true, "Please add your age"],
+        min:[1, "Age should be at least 1"],
+        max:[100, "Age should be at most 100"],
+    },
     password:{
         type:String,
         required:[true, "Please add your password"],
@@ -46,7 +54,12 @@ const userSchema = new mongoose.Schema({
         maxLength:[20, "Password should be at most 20 characters long"],
         
     }
-});
+},
+{
+    timestamps:true,//this will add createdAt and updatedAt fields to the document
+
+}); 
+
 
 
 const User = mongoose.model("User", userSchema);

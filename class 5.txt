@@ -112,3 +112,13 @@ Driver
 Mongoose is a database driver that helps us in defining schema, connecting to our database, and implementing user data related tasks 
 
 
+mongoose.connect("mongodb://localhost:27017/mongodb")
+.then(() => {
+    console.log("Connected to MongoDB");
+})
+.catch((err) => {
+    console.log("Error connecting to MongoDB", err);
+})
+
+
+View ----- Controller ----- Model ----- DB 

@@ -1,6 +1,6 @@
 //router -> this is a feature of express that allows us to create modular route handlers
 //modular code -> code that is organized into smaller, reusable chunks 
-
+const User = require("../model/users.model");
 const router = require("express").Router();
 
 const { signup, login } = require("../controller/user.controller");
@@ -30,6 +30,10 @@ router.put("/updatepassword", (req, res)=>{
     res.send("Update Password");
 })
 // updatepassword
+router.get("/allusers", async (req, res)=>{
+    const users = await User.find();   
+    res.json({users:users}) 
+})
 
 //50 routes 
 
