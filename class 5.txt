@@ -81,6 +81,7 @@ db.collection_name.find({query});
 
 Querying 
 
+Class 6.txt
 
 Update 
 Query, implement the update 

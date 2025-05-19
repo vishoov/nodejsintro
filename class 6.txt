@@ -1,0 +1,184 @@
+Querying 
+
+Tells the database to fetch some data 
+
+//Railway stations -> enquiry window 
+
+they enquiry window people GIVE you information 
+
+You are requiring some information
+
+FIND something
+
+
+user, id, name, age -> exact values 
+
+//you need to find all users that are aged below 20 years 
+
+
+User.find(query)
+
+Query is passed inside the find function 
+
+Queries? 
+
+if i want to find a user based on his name
+what will i write as a query
+
+router.get("/user/:name", async (req, res)=>{
+    try{
+        const name = req.params.name;
+        const user = await User.find(?);
+    }
+    catch(err){
+
+    }
+})
+
+
+
+1. BASIC EQUALITY OPERATORS
+
+exact match 
+
+
+User.find({name:"abc"})
+
+this is used for querying through id,cityname, name or any fixed string
+
+
+find users of age exact 20 years 
+
+router.get("/age/:age", async (req, res) => {
+
+    try {
+
+        const age = parseInt(req.params.age);
+        const users = await User.find({ age: age });
+        res.json(users);
+
+    } catch (err) {
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+
+});
+
+=> you need to find users whos age is LESS THAN 20
+
+
+2. COMPARISON OPERATORS 
+
+<, >, <=, >= 
+
+router.get("/age/:age", async (req, res) => {
+
+    try {
+
+        const age = parseInt(req.params.age);
+        const users = await User.find({ age: { $lt:age  } });
+        res.json(users);
+
+    } catch (err) {
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+
+});
+
+User.find({age: { query : value }})
+Query->
+1. Less than -> $lt
+2. Less than or equal to -> $lte 
+3. Greater Than -> $gt
+4. Greater than or equal to -> $gte
+5. Not equal to -> $ne
+
+User.find({age: {query} })
+1. >0
+
+2.<=100
+
+3.>10
+
+4. !=50
+
+5. >=50
+
+3. LOGICAL OPERATORS 
+
+AND, OR, NOT
+
+1. user -> whose age is greater than 10 years but less than 50 years 
+
+
+bookmyshow  
+
+ad-> coldplay 18-30 
+
+you have to fetch all the users with age ranging from 18 to 30 
+
+
+greater than or equal to 18
+less than equal to 30 
+
+$or,
+$not 
+
+
+4. check the existence of a FIELD 
+
+User.find({
+    "age": { $exists:true }
+})
+
+
+write a route to find all the MALES in our data 
+
+
+
+
+Aggregation Pipelines 
+
+!!!!important!!!!
+
+
+Business Analyst, Data Analyst, 
+Growth Analyst, Market Analyst,
+Product Manager
+
+
+ Based on Data-> Trends Prediction 
+
+
+ Growth Analyst ->  Amazon   -> ecommerce
+                            -> grocery
+                            -> quick commerce
+                            -> prime video 
+
+INDIA -> iphone popular -> reduced the price of iphone 
+
+
+Based on data trends 
+
+Data 
+
+Aggregation 
+
+whenever you need any information that is DIFFERENT from the information saved on the db
+but uses same fundamentals 
+
+
+user management api 
+
+product that is meant for adults 
+
+age wise distribution how much
+
+age 0-10 -> ?
+age 10-20 -> ?
+age 20-30 ->?
+
+
+
+we need to gather some INSIGHTS, some FIGURES, some NUMBERS
+
+data aggregation 
