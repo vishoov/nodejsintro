@@ -1,0 +1,26 @@
+SERVER SECURITY BEST PRACTICES 
+
+
+server side -> data 
+//allocation, management, fetch
+//data is very very sensitive 
+
+
+Layered
+
+1.Password Security -> email, password -> the password is only known by the user , ENCRYPTION 
+2. User Authentication  -> login one time -> features you can use these without repeatedly entering your email and password 
+//movie -> tickets/token -> entry 
+token based authentication 
+signup or login -> email password -> token -> encrypted and verified string 
+3. Server Security -> any unknown client side cannot access my server 
+4. Rate Limiting -> restrict that how many requests a specific client can send 
+//hackers -> DDoS -> server overwhelm -> 100000 bots request 
+5. Environment Variables -> secret keys, uri-> hide from other developers 
+
+
+password encryption -> bcrypt
+user authentication -> jsonwebtoken
+server security -> CORs cross origin resource sharing 
+rate limiting-> express-rate-limiting
+env variable-> dotenv 
