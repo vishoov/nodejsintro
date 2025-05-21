@@ -3,6 +3,8 @@ const express = require('express');
 //import express dependancy 
 const userRoutes = require("./view/user.routes");
 const app = express();
+const limit = require('express-rate-limit');
+//import express-rate-limit dependancy
 //app is an instance of express that is used to create a server
 //create an instance of express
 
@@ -53,9 +55,17 @@ const loggingMiddleware = (req, res, next) =>{
 
 }
 
+const limiter = limit(
+    {
+        //windowMs
+        windowMs: 15*60*1000,
+        maxRequests:5,
+        message:"Too many requests from this IP, please try again later",
+    }
+);
 
 
-
+app.use(limiter);
 app.use(loggingMiddleware);
 //middleware -> function that runs before the request is processed
 

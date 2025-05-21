@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
     //Schema is the blueprint of the document
@@ -61,6 +61,33 @@ const userSchema = new mongoose.Schema({
 }); 
 
 
+
+userSchema.pre("save", function(next){
+    const user = this;
+    //signup -> schema -> current user for who the document is being created is accessed through 'this'
+    const salt =  bcrypt.genSaltSync(10);
+    //10 is the number of rounds of hashing
+    const hashedPassword = bcrypt.hashSync(user.password, salt);
+    
+    user.password = hashedPassword;
+    //this will hash the password before saving it to the database
+
+    next();
+})
+//event listener -> this function will run before the document is saved to the database
+
+
+//we need a method to compare the password entered by the user with the hashed password in the database
+
+userSchema.methods.comparePassword = function(password){
+    const user = this;
+    //this extracts the current user from the schema
+
+    const isMatch = bcrypt.compareSync(password, user.password);
+    //this will compare the password entered by the user with the hashed password in the database
+    //if the password matches it will return true else false
+    return isMatch;
+}
 
 const User = mongoose.model("User", userSchema);
 

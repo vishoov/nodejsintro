@@ -1,0 +1,58 @@
+API Security Best Practices 
+
+
+rate limiting-> express-rate-limiting
+password encryption -> bcrypt
+user authentication -> jsonwebtoken
+server security -> CORs cross origin resource sharing 
+env variable-> dotenv 
+
+
+Rate limiting -> DDoS -> hackers send huge amount of fake requests on our server
+
+Limit the number of requests recieved from a client 
+record
+
+client         requests
+129.168.0.1     2
+
+
+Limit -> 10 requests in 1 hour 
+
+
+Middlewares -> are implemented before any route or before the data is saved in the database 
+
+
+Usage:
+
+npm install express-rate-limit
+
+const limit = ({
+    specification of the rate limiter 
+})
+
+client-> rate limit ->route 
+
+
+Password Encryption 
+
+Encrypt/Hash 
+
+password -> fohwopgfpuhlkn/.n;oy9y;lfb/,mnl;fhpb
+
+//internal algorithm 
+
+password + salt (algorithm)= hashed password  
+'vishoo' + 'thisisaveryfunnysalt' = 3969639yofolb.9goolblbl.iovidovofv
+salt -> string secret key 
+
+
+signup -> 
+updatepassword -> 
+
+user information send --> hash --> database store  
+
+Usage:
+
+npm i bcrypt 
+

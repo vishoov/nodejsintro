@@ -56,8 +56,8 @@ user route
 
 Layer
 
-enpoint | routes | controller | model 
-
+enpoint | routes | controller | model ->  
+        
 
 ERROR HANDLING
 

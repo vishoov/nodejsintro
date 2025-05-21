@@ -41,7 +41,13 @@ const login = async (req, res)=>{
         return res.status(400).send("User not found");
     }
 
-    if(user.password !== password){
+    // if(user.password !== password){
+    //     return res.status(400).send("Invalid password");
+    // }
+
+    const isMatch = user.comparePassword(password);
+
+    if(!isMatch){
         return res.status(400).send("Invalid password");
     }
 
