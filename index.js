@@ -17,6 +17,21 @@ const mongoose = require('mongoose');
 const PORT = 3000;
 app.use(express.json())
 //routing 
+const dotenv=   require('dotenv');
+dotenv.config();
+//dotenv is used to load environment variables from a .env file into process.env
+const cors = require('cors');
+
+app.use(cors({
+    origin: "",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+   
+    exposedHeaders: ['Authorization'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
+//cors is used to allow cross-origin requests
 
 //routing -> define the endpoints
 //endpoints -> url -> api -> server
@@ -26,7 +41,7 @@ app.use(express.json())
 //   });
 
 //this is a promise that is used to connect to the database
-mongoose.connect("mongodb://localhost:27017/mongodb")
+mongoose.connect(process.env.MONGO)
 .then(() => {
     console.log("Connected to MongoDB");
 })

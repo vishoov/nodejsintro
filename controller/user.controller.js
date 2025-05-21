@@ -1,6 +1,6 @@
 const User  = require("../model/users.model");
-
-
+const { createToken} = require("../auth/auth.user");
+const jwt = require('jsonwebtoken');
 const signup =  async (req, res)=> {
 
     try{
@@ -11,6 +11,7 @@ const signup =  async (req, res)=> {
     const newUser = await User.create(user);
     //insertOne -> user.create(user) -> create a new user in the database
 
+    const token =createToken(newUser);
     //input sanitization -> process of removing unwanted characters from the input
     //input validation -> process of checking if the input is valid or not
 
@@ -21,7 +22,7 @@ const signup =  async (req, res)=> {
     // }
 
     // res.send(`Hello ${name}, your email is ${email} and your password is ${password}`);
-    res.json({newUser:newUser})
+    res.json({message:"User created successfully", user:newUser, token:token});
 
     }
     catch(err){

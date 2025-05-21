@@ -2,7 +2,7 @@
 //modular code -> code that is organized into smaller, reusable chunks 
 const User = require("../model/users.model");
 const router = require("express").Router();
-
+const { auth } = require("../auth/auth.user");
 const { signup, login } = require("../controller/user.controller");
 //app.method('route', (req, res) => {})
 //router.method('route', (req, res) => {})
@@ -31,7 +31,7 @@ catch(err){
 })
 // profile 
 
-router.get("/home", (req, res)=>{
+router.get("/home", auth, (req, res)=>{
     try{
     res.send("Home");
     }
@@ -41,7 +41,7 @@ router.get("/home", (req, res)=>{
 });
 // home
 
-router.put("/updatepassword", async (req, res)=>{
+router.put("/updatepassword", auth, async (req, res)=>{
   //verify 
   //email, password 
   //updated password 
@@ -70,7 +70,7 @@ router.put("/updatepassword", async (req, res)=>{
   }
 })
 // updatepassword
-router.get("/allusers", async (req, res)=>{
+router.get("/allusers", auth, async (req, res)=>{
     const users = await User.find();   
     res.json({users:users}) 
 })

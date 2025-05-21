@@ -4,8 +4,8 @@ API Security Best Practices
 rate limiting-> express-rate-limiting
 password encryption -> bcrypt
 user authentication -> jsonwebtoken
-server security -> CORs cross origin resource sharing 
 env variable-> dotenv 
+server security -> CORs cross origin resource sharing 
 
 
 Rate limiting -> DDoS -> hackers send huge amount of fake requests on our server
@@ -55,4 +55,45 @@ user information send --> hash --> database store
 Usage:
 
 npm i bcrypt 
+
+
+JWT json web token 
+
+
+-> user login -> token generate -> client side save -> token verify 
+-> authentication
+-> token format 
+-> header.payload.signature 
+
+->header = technical details -> format, encryption algorithm 
+->payload -> user information -> vishoo's login -> email, password -> stateless
+    -> standalone requests -> token client side-> encrypted token -> vishoo's token 
+->Signature-> you can add one secret key to make the token even more secure and 
+avoid getting lost or stolen
+
+
+Usage:
+
+npm i jsonwebtoken
+implement as a middleware 
+
+
+
+Environment Variables 
+
+environment, secret key uri -> restrict -> github -> download 
+
+
+Usage:
+
+npm install dotenv
+
+server security
+it specifies the clients that can request my server 
+
+
+npm i cors 
+
+cross origin resource sharing policy
+
 
