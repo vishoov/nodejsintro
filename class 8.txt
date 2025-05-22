@@ -59,6 +59,8 @@ npm i bcrypt
 
 JWT json web token 
 
+OAuth-> this is 3rd party authentication `
+
 
 -> user login -> token generate -> client side save -> token verify 
 -> authentication
