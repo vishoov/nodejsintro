@@ -70,7 +70,7 @@ router.put("/updatepassword", auth, async (req, res)=>{
   }
 })
 // updatepassword
-router.get("/allusers", auth, async (req, res)=>{
+router.get("/allusers", async (req, res)=>{
     const users = await User.find();   
     res.json({users:users}) 
 })
